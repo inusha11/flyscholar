@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlyScholars | Study in Germany Without IELTS</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      color: #fff;
+      background-color: #000;
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    #hero {
+      background-image: url('https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    #details {
+      background-image: url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    .overlay {
+      background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.85) 100%);
+    }
+    /* Loader */
+    #loader {
+      position: fixed; top:0; left:0; width:100%; height:100%;
+      background: #fff; display:flex; align-items:center; justify-content:center; z-index:9999;
+    }
+    .spinner {
+      border:5px solid #eee;
+      border-top:5px solid #dc2626;
+      border-radius:50%;
+      width:60px; height:60px;
+      animation:spin 1s linear infinite;
+    }
+    @keyframes spin {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({ duration: 1000, once: true });
+      window.addEventListener('load', () => document.getElementById('loader').style.display='none');
+    });
+  </script>
+</head>
+
+<body>
+
+  <!-- Loader -->
+  <div id="loader"><div class="spinner"></div></div>
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/10 backdrop-blur-lg shadow-lg border-b border-white/20">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <h1 class="text-3xl font-bold text-white tracking-wide">FlyScholars</h1>
+      <nav class="space-x-8 text-lg text-gray-200 font-medium hidden md:block">
+        <a href="#why" class="hover:text-red-400 transition">Why Choose</a>
+        <a href="#details" class="hover:text-red-400 transition">Details</a>
+        <a href="#apply" class="hover:text-red-400 transition">Apply</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+    <div class="overlay absolute inset-0"></div>
+    <div class="relative z-10 px-6" data-aos="zoom-in">
+      <h2 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight drop-shadow-lg">
+        Study in Germany Without IELTS 🇩🇪
+      </h2>
+      <p class="text-2xl md:text-3xl font-light mb-10 text-gray-100">Pre-Bachelor Semester Program 2026</p>
+      <a href="#apply" class="bg-red-600 hover:bg-red-700 text-white px-10 py-4 rounded-full font-semibold text-xl transition transform hover:scale-105 inline-block shadow-xl">
+        Apply Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Why Choose -->
+  <section id="why" class="py-24 bg-gradient-to-b from-gray-900 via-black to-gray-900">
+    <div class="max-w-6xl mx-auto px-6" data-aos="fade-up">
+      <div class="glass rounded-3xl p-12 shadow-2xl">
+        <h2 class="text-4xl md:text-5xl text-center text-red-400 font-bold mb-12">Why Choose This Program?</h2>
+        <div class="grid md:grid-cols-2 gap-10 text-gray-100 text-xl">
+          <ul class="space-y-4" data-aos="fade-right">
+            <li>✔ No IELTS Required</li>
+            <li>✔ Gateway to German Higher Education</li>
+            <li>✔ Build a strong academic foundation</li>
+            <li>✔ International exposure & career opportunities</li>
+          </ul>
+          <div class="space-y-4" data-aos="fade-left">
+            <p>
+              The <strong class="text-red-400">FlyScholars Pre-Bachelor Program</strong> is your gateway to Germany’s top universities.
+              Develop strong academic and cultural readiness before entering your undergraduate degree.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program Details -->
+  <section id="details" class="relative py-24 bg-cover bg-center text-white">
+    <div class="absolute inset-0 bg-black/75"></div>
+    <div class="relative max-w-6xl mx-auto px-6 text-center" data-aos="fade-up">
+      <h2 class="text-4xl md:text-5xl font-bold text-amber-400 mb-12">Program Details</h2>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="glass p-10 rounded-3xl" data-aos="zoom-in"><h3 class="text-2xl font-semibold mb-2">Duration</h3><p>6 Months</p></div>
+        <div class="glass p-10 rounded-3xl" data-aos="zoom-in"><h3 class="text-2xl font-semibold mb-2">Age Limit</h3><p>16+</p></div>
+        <div class="glass p-10 rounded-3xl" data-aos="zoom-in"><h3 class="text-2xl font-semibold mb-2">Visa Period</h3><p>1 Year</p></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-10 mt-12">
+        <div class="glass p-10 rounded-3xl" data-aos="fade-right"><h3 class="text-2xl font-semibold mb-2">Application Deadline</h3><p>17th November 2025</p></div>
+        <div class="glass p-10 rounded-3xl" data-aos="fade-left"><h3 class="text-2xl font-semibold mb-2">Program Start</h3><p>26th January 2026</p></div>
+      </div>
+
+      <div class="glass p-10 rounded-3xl mt-12 inline-block" data-aos="fade-up">
+        <h3 class="text-3xl font-semibold mb-4 text-amber-300">Course Contents</h3>
+        <p>English 01 • Mathematics 01 • IT 01 • Development 02</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Apply Section -->
+  <section id="apply" class="py-24 bg-gradient-to-r from-red-700 to-red-600 text-center text-white">
+    <div class="max-w-4xl mx-auto px-6" data-aos="zoom-in">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">Apply Now</h2>
+      <p class="text-xl mb-8">Start your international education journey today!</p>
+      <a href="tel:+94775900566" class="bg-white text-red-700 px-12 py-5 rounded-full font-semibold text-xl shadow-lg hover:bg-gray-100 transition transform hover:scale-105 inline-block">
+        📞 Call: 0775900566
+      </a>
+      <p class="mt-6 text-gray-200">FlyScholars – No. 43, Col TG Jayawardena Road, Colombo 03</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black/90 text-gray-400 py-6 text-center text-sm">
+    © 2025 FlyScholars | All Rights Reserved
+  </footer>
+
+</body>
+</html>
