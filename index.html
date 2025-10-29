@@ -21,6 +21,7 @@
       scroll-behavior: smooth;
       color: #fff;
       background-color: #000;
+      overflow-x: hidden;
     }
     h1, h2, h3 {
       font-family: 'Playfair Display', serif;
@@ -35,6 +36,8 @@
       background-image: url('https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
+      position: relative;
+      overflow: hidden;
     }
     #details {
       background-image: url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1920&q=80');
@@ -44,6 +47,7 @@
     .overlay {
       background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.85) 100%);
     }
+
     /* Loader */
     #loader {
       position: fixed; top:0; left:0; width:100%; height:100%;
@@ -57,12 +61,56 @@
       animation:spin 1s linear infinite;
     }
     @keyframes spin {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+
+
+    /* 🌧️ Rain Animation */
+    .rain {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 5;
+    }
+    .drop {
+      position: absolute;
+      width: 2px;
+      height: 15vh;
+      background: rgba(255, 255, 255, 0.3);
+      bottom: 100%;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
+    }
   </style>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       AOS.init({ duration: 1000, once: true });
+
+      // Hide loader after load
       window.addEventListener('load', () => document.getElementById('loader').style.display='none');
+
+      // 🌧️ Generate raindrops dynamically
+      const rainContainer = document.createElement('div');
+      rainContainer.classList.add('rain');
+      document.body.appendChild(rainContainer);
+
+      const dropCount = 60; // adjust for intensity
+      for (let i = 0; i < dropCount; i++) {
+        const drop = document.createElement('div');
+        drop.classList.add('drop');
+        drop.style.left = Math.random() * 100 + 'vw';
+        drop.style.animationDuration = (0.5 + Math.random() * 0.8) + 's';
+        drop.style.animationDelay = Math.random() * 5 + 's';
+        drop.style.height = (10 + Math.random() * 20) + 'vh';
+        rainContainer.appendChild(drop);
+      }
     });
   </script>
 </head>
@@ -74,8 +122,11 @@
 
   <!-- Navbar -->
   <header class="fixed top-0 left-0 w-full z-50 bg-white/10 backdrop-blur-lg shadow-lg border-b border-white/20">
-    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-      <h1 class="text-3xl font-bold text-white tracking-wide">FlyScholars</h1>
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
+      <div class="flex items-center space-x-3">
+        <img src="images/logo.jpg" alt="FlyScholars Logo" class="h-12 w-12 rounded-full border border-white/30 shadow-md">
+        <h1 class="text-2xl md:text-3xl font-bold text-white tracking-wide">FlyScholars</h1>
+      </div>
       <nav class="space-x-8 text-lg text-gray-200 font-medium hidden md:block">
         <a href="#why" class="hover:text-red-400 transition">Why Choose</a>
         <a href="#details" class="hover:text-red-400 transition">Details</a>
@@ -85,8 +136,8 @@
   </header>
 
   <!-- Hero -->
-  <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
-    <div class="overlay absolute inset-0"></div>
+  <section id="hero" class="relative h-screen flex items-center justify-center text-center">
+    <div class="overlay absolute inset-0 z-0"></div>
     <div class="relative z-10 px-6" data-aos="zoom-in">
       <h2 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight drop-shadow-lg">
         Study in Germany Without IELTS 🇩🇪
@@ -152,13 +203,18 @@
       <a href="tel:+94775900566" class="bg-white text-red-700 px-12 py-5 rounded-full font-semibold text-xl shadow-lg hover:bg-gray-100 transition transform hover:scale-105 inline-block">
         📞 Call: 0775900566
       </a>
-      <p class="mt-6 text-gray-200">FlyScholars – No. 43, Col TG Jayawardena Road, Colombo 03</p>
+      <p class="mt-8 text-lg">📧 <a href="mailto:official.flyscholars@gmail.com" class="underline hover:text-gray-100">official.flyscholars@gmail.com</a></p>
+      <p class="mt-4 text-gray-200">🏢 FlyScholars – No. 43, Col TG Jayawardena Road, Colombo 03</p>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-black/90 text-gray-400 py-6 text-center text-sm">
-    © 2025 FlyScholars | All Rights Reserved
+  <footer class="bg-black/90 text-gray-400 py-6 text-center text-sm border-t border-white/10">
+    <div class="flex flex-col md:flex-row items-center justify-center gap-2">
+      <span>© 2025 FlyScholars | All Rights Reserved</span>
+      <span class="hidden md:inline-block">•</span>
+      <a href="mailto:official.flyscholars@gmail.com" class="hover:text-red-400">official.flyscholars@gmail.com</a>
+    </div>
   </footer>
 
 </body>
